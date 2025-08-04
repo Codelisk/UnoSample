@@ -23,7 +23,19 @@
     -->
     <UnoFeatures>
       SkiaRenderer;
+      Navigation;
+      Hosting;
+      Extensions;
     </UnoFeatures>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Uno.Extensions.Reactive" />
+    <PackageReference Include="Uno.Extensions.Navigation" />
+    <PackageReference Include="Uno.Extensions.Navigation.Toolkit" />
+    <PackageReference Include="Uno.Extensions.Hosting" />
+    <PackageReference Include="Shiny.Extensions.Configuration" Version="3.0.0" />
+    <PackageReference Include="Shiny.Mediator" Version="1.0.0" />
+  </ItemGroup>
 
 </Project>

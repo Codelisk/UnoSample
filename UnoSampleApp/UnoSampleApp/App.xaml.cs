@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Extensions.Logging;
 using Uno.Resizetizer;
+using UnoSampleApp.Pages.Main;
 
 namespace UnoSampleApp;
 
@@ -17,38 +18,14 @@ public partial class App : Application
 
     protected Window? MainWindow { get; private set; }
 
-    protected override void OnLaunched(LaunchActivatedEventArgs args)
+    protected override async void OnLaunched(LaunchActivatedEventArgs args)
     {
-        MainWindow = new Window();
-#if DEBUG
-        MainWindow.UseStudio();
-#endif
+        var builder = this.CreateBuilder(args)
+            .Configure(host => ConfigureHost(host));
 
+        MainWindow = builder.Window;
 
-        // Do not repeat app initialization when the Window already has content,
-        // just ensure that the window is active
-        if (MainWindow.Content is not Frame rootFrame)
-        {
-            // Create a Frame to act as the navigation context and navigate to the first page
-            rootFrame = new Frame();
-
-            // Place the frame in the current Window
-            MainWindow.Content = rootFrame;
-
-            rootFrame.NavigationFailed += OnNavigationFailed;
-        }
-
-        if (rootFrame.Content == null)
-        {
-            // When the navigation stack isn't restored navigate to the first page,
-            // configuring the new page by passing required information as a navigation
-            // parameter
-            rootFrame.Navigate(typeof(MainPage), args.Arguments);
-        }
-
-        MainWindow.SetWindowIcon();
-        // Ensure the current window is active
-        MainWindow.Activate();
+        _ = await builder.NavigateAsync<Shell>();
     }
 
     /// <summary>

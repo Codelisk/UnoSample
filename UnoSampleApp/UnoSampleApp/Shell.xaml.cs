@@ -1,8 +1,8 @@
 namespace UnoSampleApp;
 
-public sealed partial class MainPage : Page
+public sealed partial class Shell : UserControl
 {
-    public MainPage()
+    public Shell()
     {
         this.InitializeComponent();
     }

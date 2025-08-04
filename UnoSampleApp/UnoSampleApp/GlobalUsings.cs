@@ -2,3 +2,10 @@
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Logging;
 global using ApplicationExecutionState = Windows.ApplicationModel.Activation.ApplicationExecutionState;
+global using Microsoft.UI.Xaml;
+global using Microsoft.UI.Xaml.Controls;
+global using Microsoft.UI.Xaml.Navigation;
+global using Uno.Extensions;
+global using Uno.Extensions.Navigation;
+global using Uno.Extensions.Reactive;
+global using Windows.ApplicationModel.Activation;
